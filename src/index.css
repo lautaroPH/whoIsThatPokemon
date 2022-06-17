@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: url('assets/fonts/PokemonSolid.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+}
+
+body {
+  margin: 0;
+  font-family: cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("assets/img/pokemonBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  background-attachment: fixed;
+  image-rendering: pixelated;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+code {
+  font-family: cursive;
+}

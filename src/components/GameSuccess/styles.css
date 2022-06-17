@@ -1,0 +1,19 @@
+.name-correct-pokemon {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: cursive;
+    letter-spacing: 0.2em;
+    -webkit-text-stroke: 1.2px #000;
+    color: #fff;
+}
+
+.name-correct-pokemon-tick {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: cursive;
+    letter-spacing: 0.2em;
+    -webkit-text-stroke: 0.3px #000;
+    color: #0fe311;
+}

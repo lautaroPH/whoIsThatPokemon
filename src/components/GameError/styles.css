@@ -1,0 +1,30 @@
+.try-again {
+    color: #f00;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: cursive;
+    letter-spacing: 0.5em;
+    margin: 0;
+    -webkit-text-stroke: 1.2px #000;
+}
+
+.name-pokemon-wrong-p {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: cursive;
+    letter-spacing: 0.2em;
+    -webkit-text-stroke: 1.2px #000;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.name-wrong-pokemon {
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: cursive;
+    letter-spacing: 0.2em;
+    -webkit-text-stroke: 1.2px #000;
+    color: #0fe311;
+}
