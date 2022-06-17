@@ -14,8 +14,6 @@ function App() {
 
   useEffect(() => getPokemon(), []);
 
-  console.log(pokemon?.name);
-
   return (
     <div>
       {status !== gameStatus.loading && (

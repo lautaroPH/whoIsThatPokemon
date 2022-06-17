@@ -8,11 +8,16 @@ const PokemonImage = ({ image, status }) => {
         <img
           src={image}
           alt="pokemon"
-          className={`${
-            status === gameStatus.error || status === gameStatus.success
-              ? 'show-pokemon'
-              : 'no-show-pokemon'
-          } pokemon-image`}
+          className="pokemon-image"
+          style={{
+            imageRendering: 'pixelated',
+            transition: 'filter 0.2s',
+            filter: `brightness(${
+              status === gameStatus.error || status === gameStatus.success
+                ? 1
+                : 0
+            })`,
+          }}
         />
       )}
     </div>
