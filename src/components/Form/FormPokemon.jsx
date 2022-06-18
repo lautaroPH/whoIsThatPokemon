@@ -7,7 +7,7 @@ const FormPokemon = ({ name, setSuccess, setError }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    pokemonNameInput.toLowerCase() === name.toLowerCase()
+    pokemonNameInput.toLowerCase().trim() === name.toLowerCase()
       ? setSuccess()
       : setError();
 
