@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { url } from '../url';
 import useStatus from './useStatus';
 
@@ -6,20 +6,22 @@ const usePokemon = () => {
   const [pokemon, setPokemon] = useState(null);
   const { status, setLoading, setSuccess, setError, setPlaying } = useStatus();
 
-  const getPokemon = () => {
-    const offset = Math.floor(Math.random() * 898) + 1;
-    const getPokemonUrl = `${url}/${offset}`;
+  const offset = Math.floor(Math.random() * 898) + 1;
+  const getPokemonUrl = `${url}/${offset}`;
 
+  const getPokemon = () => {
     fetch(getPokemonUrl)
       .then((result) => result.json())
       .then((pokemon) => {
         setPokemon({
-          image: pokemon.sprites.front_default,
+          image: pokemon?.sprites?.front_default,
           name: pokemon?.name,
         });
         setPlaying();
       });
   };
+
+  useEffect(() => getPokemon(), []);
 
   const resetPokemon = () => {
     getPokemon();
@@ -27,7 +29,6 @@ const usePokemon = () => {
 
   return {
     pokemon,
-    getPokemon,
     resetPokemon,
     status,
     setLoading,

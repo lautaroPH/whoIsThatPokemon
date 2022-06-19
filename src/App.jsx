@@ -1,5 +1,4 @@
 import Title from './components/Title/Title';
-import { useEffect } from 'react';
 import usePokemon from './hooks/usePokemon';
 import { gameStatus } from './gameStatus';
 import GameError from './components/GameError/GameError';
@@ -9,19 +8,18 @@ import GiveAnotherPokemon from './components/Buttons/GiveAnotherPokemon';
 import PokemonImage from './components/PokemonImage/PokemonImage';
 
 function App() {
-  const { pokemon, getPokemon, resetPokemon, setError, setSuccess, status } =
-    usePokemon();
-
-  useEffect(() => getPokemon(), []);
-
-  console.log(pokemon?.name);
+  const { pokemon, resetPokemon, setError, setSuccess, status } = usePokemon();
 
   return (
     <div>
+      <Title />
       {status !== gameStatus.loading && (
         <>
-          <Title />
-          <PokemonImage image={pokemon?.image} status={status} />
+          <PokemonImage
+            image={pokemon?.image}
+            status={status}
+            name={pokemon?.name}
+          />
           {status === gameStatus.error && (
             <GameError resetPokemon={resetPokemon} name={pokemon?.name} />
           )}
