@@ -55,3 +55,12 @@
 .input-button:hover {
     background-color: rgba(0, 0, 0, 0.36);
 }
+
+.input-button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.input-button:disabled:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}

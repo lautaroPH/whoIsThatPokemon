@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { gameStatus } from '../../gameStatus';
 import './styles.css';
 
-const FormPokemon = ({ name, setSuccess, setError }) => {
+const FormPokemon = ({ name, setSuccess, setError, status }) => {
   const [pokemonNameInput, setPokemonNameInput] = useState('');
 
   const handleSubmit = (e) => {
@@ -15,7 +16,7 @@ const FormPokemon = ({ name, setSuccess, setError }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="form-container" aria-label="form" onSubmit={handleSubmit}>
       <div className="div-input-button-container">
         <input
           className="input-pokemon-name"
@@ -24,7 +25,11 @@ const FormPokemon = ({ name, setSuccess, setError }) => {
           onChange={(e) => setPokemonNameInput(e.target.value)}
           value={pokemonNameInput}
         />
-        <button className="input-button" type="submit">
+        <button
+          disabled={status !== gameStatus.playing}
+          className="input-button"
+          type="submit"
+        >
           Go !
         </button>
       </div>

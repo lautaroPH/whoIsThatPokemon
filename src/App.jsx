@@ -30,6 +30,7 @@ function App() {
             name={pokemon?.name}
             setSuccess={setSuccess}
             setError={setError}
+            status={status}
           />
           <GiveAnotherPokemon resetPokemon={resetPokemon} />
         </>

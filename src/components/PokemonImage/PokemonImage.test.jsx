@@ -4,44 +4,47 @@ import { gameStatus } from '../../gameStatus';
 import PokemonImage from './PokemonImage';
 
 describe('PokemonImage', () => {
-  test('Show the corrects props', () => {
+  const setup = (name, image, status) => {
     const { getByAltText } = render(
-      <PokemonImage
-        image="https://img.pokemondb.net/artwork/bulbasaur.jpg"
-        name="bulbasaur"
-        status={gameStatus.playing}
-      />,
+      <PokemonImage image={image} name={name} status={status} />,
+    );
+    const imgElement = getByAltText(name);
+
+    return { imgElement, getByAltText };
+  };
+
+  test('Show the corrects props', () => {
+    const { imgElement } = setup(
+      'bulbasaur',
+      'https://img.pokemondb.net/artwork/bulbasaur.jpg',
+      gameStatus.playing,
     );
 
-    const image = getByAltText('bulbasaur');
-    expect(image).toHaveAttribute(
+    expect(imgElement).toHaveAttribute(
       'src',
       'https://img.pokemondb.net/artwork/bulbasaur.jpg',
     );
-    expect(getByAltText('bulbasaur')).toHaveStyle('filter: brightness(0)');
+    expect(imgElement).toHaveStyle('filter: brightness(0)');
+    expect(imgElement).toBeInTheDocument();
   });
 
   test('should see the image if status is equal to error', () => {
-    const { getByAltText } = render(
-      <PokemonImage
-        image="https://img.pokemondb.net/artwork/bulbasaur.jpg"
-        name="bulbasaur"
-        status={gameStatus.error}
-      />,
+    const { imgElement } = setup(
+      'bulbasaur',
+      'https://img.pokemondb.net/artwork/bulbasaur.jpg',
+      gameStatus.error,
     );
 
-    expect(getByAltText('bulbasaur')).toHaveStyle('filter: brightness(1)');
+    expect(imgElement).toHaveStyle('filter: brightness(1)');
   });
 
   test('should see the image if status is equal to succcess', () => {
-    const { getByAltText } = render(
-      <PokemonImage
-        image="https://img.pokemondb.net/artwork/bulbasaur.jpg"
-        name="bulbasaur"
-        status={gameStatus.success}
-      />,
+    const { imgElement } = setup(
+      'bulbasaur',
+      'https://img.pokemondb.net/artwork/bulbasaur.jpg',
+      gameStatus.success,
     );
 
-    expect(getByAltText('bulbasaur')).toHaveStyle('filter: brightness(1)');
+    expect(imgElement).toHaveStyle('filter: brightness(1)');
   });
 });
