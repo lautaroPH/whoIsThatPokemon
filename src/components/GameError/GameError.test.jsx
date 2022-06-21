@@ -1,10 +1,10 @@
 import { fireEvent, render } from '@testing-library/react';
 import { describe, test } from 'vitest';
 import App from '../../App';
-import GameSuccess from './GameSuccess';
+import GameError from './GameError';
 
-describe('GameSucccess', () => {
-  test('It should appear gameSuccess if you get right answer', async () => {
+describe('GameError', () => {
+  test('It should appear gameError if you get wrong answer', async () => {
     fetch.mockResponseOnce(
       JSON.stringify({
         name: 'bulbasaur',
@@ -16,15 +16,18 @@ describe('GameSucccess', () => {
 
     const button = await findByText('Go !');
     const input = await findByPlaceholderText('Pokemon name');
-    fireEvent.change(input, { target: { value: 'bulbasaur' } });
+    fireEvent.change(input, { target: { value: 'charizard' } });
     fireEvent.click(button);
+    getByText('Try again !!!');
+    getByText('The pokemon was:');
     getByText('bulbasaur');
-    getByText('✔');
+    getByText('Play again');
   });
 
-  test('Show the name correctly', async () => {
-    const { getByText } = render(<GameSuccess name="bulbasaur" />);
+  test('Show text correctly', async () => {
+    const { getByText } = render(<GameError name="bulbasaur" />);
 
+    getByText('Try again !!!');
     getByText('bulbasaur');
     getByText('Play again');
   });
