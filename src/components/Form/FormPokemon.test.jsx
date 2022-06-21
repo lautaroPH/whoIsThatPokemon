@@ -66,7 +66,7 @@ describe('FormPokemon', () => {
 
     fireEvent.change(input, { target: { value: 'charizar' } });
     fireEvent.submit(form);
-    expect(mockHandlerError).toHaveBeenCalled(1);
+    expect(mockHandlerError).toHaveBeenCalledTimes(1);
     expect(input.value).toBe('');
   });
 
@@ -75,7 +75,7 @@ describe('FormPokemon', () => {
 
     fireEvent.change(input, { target: { value: 'bulbasaur' } });
     fireEvent.submit(form);
-    expect(mockHandlerSuccess).toHaveBeenCalled(1);
+    expect(mockHandlerSuccess).toHaveBeenCalledTimes(1);
     expect(input.value).toBe('');
   });
 });

@@ -17,7 +17,7 @@ describe('Buttons', () => {
 
     const button = getByText('Give me another pokemon!');
     fireEvent.click(button);
-    expect(mockHandler).toHaveBeenCalled(1);
+    expect(mockHandler).toHaveBeenCalledTimes(1);
   });
 
   test('should call resetPokemon in PlayAgain', () => {
@@ -27,6 +27,6 @@ describe('Buttons', () => {
 
     const button = getByText('Play again');
     fireEvent.click(button);
-    expect(mockHandler).toHaveBeenCalled(1);
+    expect(mockHandler).toHaveBeenCalledTimes(1);
   });
 });
